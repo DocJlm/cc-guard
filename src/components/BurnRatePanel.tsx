@@ -28,19 +28,19 @@ export function BurnRatePanel({ costRate, tokenRate, mode, showSparkline = true 
   if (mode === 'sub') {
     const { tokensPerHour, recentTokensPerHour, projectedBlockTokens, trend, sparklineData } = tokenRate;
     return (
-      <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1}>
+      <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1} width="100%">
         <Text bold color={colors.rate}>
           {'🔥 Burn Rate'}
         </Text>
         <Box flexDirection="column" marginTop={1}>
           <Box>
-            <Text dimColor>Rate</Text>
+            <Text dimColor>Rate     </Text>
             <Spacer />
             <Text bold color={colors.rate}>{formatTokenRate(tokensPerHour)}</Text>
             <Text color={trendColor[trend]}> {trendIcon[trend]} {trend}</Text>
           </Box>
           <Box>
-            <Text dimColor>Recent</Text>
+            <Text dimColor>Recent   </Text>
             <Spacer />
             <Text color={colors.text}>{formatTokenRate(recentTokensPerHour)}</Text>
             <Text dimColor> (15m)</Text>
@@ -49,7 +49,7 @@ export function BurnRatePanel({ costRate, tokenRate, mode, showSparkline = true 
             <Text dimColor>Projected</Text>
             <Spacer />
             <Text color={colors.tokens}>{formatTokens(projectedBlockTokens)}</Text>
-            <Text dimColor> / block</Text>
+            <Text dimColor> /blk</Text>
           </Box>
           {showSparkline && sparklineData.length > 0 && (
             <Box marginTop={1}>
@@ -64,19 +64,19 @@ export function BurnRatePanel({ costRate, tokenRate, mode, showSparkline = true 
 
   const { costPerHour, recentCostPerHour, projectedBlockTotal, trend, sparklineData } = costRate;
   return (
-    <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1}>
+    <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1} width="100%">
       <Text bold color={colors.rate}>
         {'🔥 Burn Rate'}
       </Text>
       <Box flexDirection="column" marginTop={1}>
         <Box>
-          <Text dimColor>Rate</Text>
+          <Text dimColor>Rate     </Text>
           <Spacer />
           <Text bold color={colors.rate}>{formatRate(costPerHour)}</Text>
           <Text color={trendColor[trend]}> {trendIcon[trend]} {trend}</Text>
         </Box>
         <Box>
-          <Text dimColor>Recent</Text>
+          <Text dimColor>Recent   </Text>
           <Spacer />
           <Text color={colors.text}>{formatRate(recentCostPerHour)}</Text>
           <Text dimColor> (15m)</Text>
@@ -85,7 +85,7 @@ export function BurnRatePanel({ costRate, tokenRate, mode, showSparkline = true 
           <Text dimColor>Projected</Text>
           <Spacer />
           <Text color={colors.cost}>{formatCost(projectedBlockTotal)}</Text>
-          <Text dimColor> / block</Text>
+          <Text dimColor> /blk</Text>
         </Box>
         {showSparkline && sparklineData.length > 0 && (
           <Box marginTop={1}>

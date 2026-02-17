@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Text } from 'ink';
-import { colors } from '../utils/colors.js';
 
 const SPARK_CHARS = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
 
@@ -25,8 +24,7 @@ export function Sparkline({ data, color }: SparklineProps) {
     return <Text dimColor>No data</Text>;
   }
 
-  const max = Math.max(...data, 0.001); // avoid division by zero
-  const min = Math.min(...data);
+  const max = Math.max(...data, 0.001);
 
   const chars = data.map(val => {
     const normalized = val / max;
@@ -41,24 +39,14 @@ export function Sparkline({ data, color }: SparklineProps) {
   });
 
   if (color) {
-    // Single color mode
     return <Text color={color}>{chars.map(c => c.char).join('')}</Text>;
   }
 
-  // Per-character coloring
   return (
     <Box>
       {chars.map((c, i) => (
         <Text key={i} color={getSparkColor(c.normalized)}>{c.char}</Text>
       ))}
-      <Text dimColor> {formatSparkVal(min)}-{formatSparkVal(max)}</Text>
     </Box>
   );
-}
-
-function formatSparkVal(val: number): string {
-  if (val >= 1) return val.toFixed(1);
-  if (val >= 0.01) return val.toFixed(2);
-  if (val === 0) return '0';
-  return val.toFixed(3);
 }

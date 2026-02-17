@@ -18,7 +18,7 @@ export function BlockTimeline({ currentBlock, progress, remainingMs, columns = 8
 
   if (!currentBlock) {
     return (
-      <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1}>
+      <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1} width="100%">
         <Text bold color={colors.time}>
           {'⏱  Block Timeline'}
         </Text>
@@ -33,7 +33,7 @@ export function BlockTimeline({ currentBlock, progress, remainingMs, columns = 8
   const endStr = currentBlock.endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1}>
+    <Box flexDirection="column" borderStyle="round" borderColor={colors.border} paddingX={1} width="100%">
       <Text bold color={colors.time}>
         {'⏱  Block Timeline'}
       </Text>

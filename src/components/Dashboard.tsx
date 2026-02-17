@@ -55,6 +55,9 @@ export function Dashboard({
   // Find the primary model from current block
   const primaryModel = models.length > 0 ? abbreviateModel(models[0].model) : '';
 
+  // Calculate half-width for equal panel sizing (minus gap and padding)
+  const halfWidth = isWide ? Math.floor((columns - 4) / 2) : undefined;
+
   return (
     <Box flexDirection="column" paddingX={1}>
       {/* Header */}
@@ -68,9 +71,7 @@ export function Dashboard({
           {` ${mode.toUpperCase()} `}
         </Text>
         {primaryModel && (
-          <>
-            <Text dimColor> {primaryModel}</Text>
-          </>
+          <Text dimColor> {primaryModel}</Text>
         )}
         <Text dimColor> </Text>
         <Text color={isWatching ? colors.success : colors.textMuted}>
@@ -83,7 +84,7 @@ export function Dashboard({
 
       {/* Top Row: Cost + Burn Rate */}
       <Box gap={1} marginTop={1} flexDirection={isWide ? 'row' : 'column'}>
-        <Box flexGrow={1}>
+        <Box width={halfWidth}>
           <CostPanel
             currentBlock={currentBlock}
             totalCostAllTime={totalCostAllTime}
@@ -119,7 +120,7 @@ export function Dashboard({
       {/* Bottom Row: Tokens + Sessions */}
       <Box gap={1} marginTop={1} flexDirection={isWide ? 'row' : 'column'}>
         {(config.panels?.tokenBreakdown !== false) && (
-          <Box flexGrow={1}>
+          <Box width={halfWidth}>
             <TokenBreakdown models={models} mode={mode} />
           </Box>
         )}

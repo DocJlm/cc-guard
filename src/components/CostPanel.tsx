@@ -26,28 +26,28 @@ export function CostPanel({ currentBlock, totalCostAllTime, totalTokensAllTime, 
 
   if (mode === 'sub') {
     return (
-      <Box flexDirection="column" borderStyle="round" borderColor={borderColor} paddingX={1}>
+      <Box flexDirection="column" borderStyle="round" borderColor={borderColor} paddingX={1} width="100%">
         <Text bold color={colors.tokens}>
           {'📊 Usage'}
         </Text>
         <Box flexDirection="column" marginTop={1}>
           <Box>
-            <Text dimColor>Block</Text>
+            <Text dimColor>Block    </Text>
             <Spacer />
-            <Text bold color={colors.tokens}>{formatTokens(blockTokens)} tokens</Text>
+            <Text bold color={colors.tokens}>{formatTokens(blockTokens)} tok</Text>
           </Box>
           <Box>
-            <Text dimColor>API eq.</Text>
+            <Text dimColor>API eq.  </Text>
             <Spacer />
             <Text color={colors.textMuted}>{formatCost(blockCost)}</Text>
           </Box>
           <Box>
-            <Text dimColor>Total</Text>
+            <Text dimColor>Total    </Text>
             <Spacer />
-            <Text color={colors.text}>{formatTokens(totalTokensAllTime)} tokens</Text>
+            <Text color={colors.text}>{formatTokens(totalTokensAllTime)} tok</Text>
           </Box>
           <Box>
-            <Text dimColor>Calls</Text>
+            <Text dimColor>Calls    </Text>
             <Spacer />
             <Text color={colors.textMuted}>{entryCount}</Text>
           </Box>
@@ -57,29 +57,29 @@ export function CostPanel({ currentBlock, totalCostAllTime, totalTokensAllTime, 
   }
 
   return (
-    <Box flexDirection="column" borderStyle="round" borderColor={borderColor} paddingX={1}>
+    <Box flexDirection="column" borderStyle="round" borderColor={borderColor} paddingX={1} width="100%">
       <Text bold color={colors.cost}>
         {'💰 Cost'}
       </Text>
       <Box flexDirection="column" marginTop={1}>
         <Box>
-          <Text dimColor>Block</Text>
+          <Text dimColor>Block    </Text>
           <Spacer />
           <Text bold color={colors.cost}>{formatCost(blockCost)}</Text>
           <Text dimColor> / {formatCost(alert.budget)}</Text>
         </Box>
         <Box>
-          <Text dimColor>Budget</Text>
+          <Text dimColor>Budget   </Text>
           <Spacer />
           <Text color={colors.text}>{formatPercent(alert.percentage)}</Text>
         </Box>
         <Box>
-          <Text dimColor>Total</Text>
+          <Text dimColor>Total    </Text>
           <Spacer />
           <Text color={colors.text}>{formatCost(totalCostAllTime)}</Text>
         </Box>
         <Box>
-          <Text dimColor>Calls</Text>
+          <Text dimColor>Calls    </Text>
           <Spacer />
           <Text color={colors.textMuted}>{entryCount}</Text>
         </Box>
